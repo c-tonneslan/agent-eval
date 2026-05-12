@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#161b22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a371f7;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid lines -->
+  <g stroke="#21262d" stroke-width="1" opacity="0.5">
+    <line x1="0" y1="160" x2="1280" y2="160"/>
+    <line x1="0" y1="320" x2="1280" y2="320"/>
+    <line x1="0" y1="480" x2="1280" y2="480"/>
+    <line x1="320" y1="0" x2="320" y2="640"/>
+    <line x1="640" y1="0" x2="640" y2="640"/>
+    <line x1="960" y1="0" x2="960" y2="640"/>
+  </g>
+
+  <!-- Glow blob left -->
+  <ellipse cx="200" cy="320" rx="280" ry="200" fill="#58a6ff" opacity="0.04"/>
+  <!-- Glow blob right -->
+  <ellipse cx="1050" cy="300" rx="250" ry="180" fill="#a371f7" opacity="0.05"/>
+
+  <!-- Left panel: title + description -->
+
+  <!-- Accent bar -->
+  <rect x="72" y="180" width="4" height="56" rx="2" fill="url(#accentGrad)"/>
+
+  <!-- Title -->
+  <text x="96" y="218" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace" font-size="52" font-weight="700" fill="#e6edf3" letter-spacing="-1">agent-eval</text>
+
+  <!-- Subtitle -->
+  <text x="96" y="264" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" fill="#8b949e">LLM agent evaluation framework built from scratch</text>
+
+  <!-- Description lines -->
+  <text x="72" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#6e7681">21 tasks · web browsing · code debugging · multi-step tool use</text>
+  <text x="72" y="348" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#6e7681">ReAct agent · exact + code test + LLM-as-judge scoring · trajectory logging</text>
+
+  <!-- Stat cards row -->
+  <!-- Card 1: Pass Rate -->
+  <rect x="72" y="388" width="148" height="90" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="96" y="430" font-family="ui-monospace, monospace" font-size="32" font-weight="700" fill="#3fb950">76%</text>
+  <text x="96" y="456" font-family="-apple-system, sans-serif" font-size="12" fill="#8b949e">Pass Rate</text>
+  <text x="96" y="472" font-family="-apple-system, sans-serif" font-size="11" fill="#6e7681">16 / 21 tasks</text>
+
+  <!-- Card 2: Avg Steps -->
+  <rect x="232" y="388" width="148" height="90" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="256" y="430" font-family="ui-monospace, monospace" font-size="32" font-weight="700" fill="#58a6ff">3.2</text>
+  <text x="256" y="456" font-family="-apple-system, sans-serif" font-size="12" fill="#8b949e">Avg Steps</text>
+  <text x="256" y="472" font-family="-apple-system, sans-serif" font-size="11" fill="#6e7681">per task</text>
+
+  <!-- Card 3: Judge r -->
+  <rect x="392" y="388" width="148" height="90" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="416" y="430" font-family="ui-monospace, monospace" font-size="32" font-weight="700" fill="#a371f7">0.87</text>
+  <text x="416" y="456" font-family="-apple-system, sans-serif" font-size="12" fill="#8b949e">Judge r</text>
+  <text x="416" y="472" font-family="-apple-system, sans-serif" font-size="11" fill="#6e7681">Pearson vs human</text>
+
+  <!-- Card 4: Tokens -->
+  <rect x="552" y="388" width="148" height="90" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="576" y="430" font-family="ui-monospace, monospace" font-size="32" font-weight="700" fill="#58a6ff">70%</text>
+  <text x="576" y="456" font-family="-apple-system, sans-serif" font-size="12" fill="#8b949e">Cache Hits</text>
+  <text x="576" y="472" font-family="-apple-system, sans-serif" font-size="11" fill="#6e7681">of input tokens</text>
+
+  <!-- Divider -->
+  <line x1="760" y1="120" x2="760" y2="520" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Right panel: terminal output -->
+  <!-- Terminal window chrome -->
+  <rect x="800" y="120" width="424" height="400" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <!-- Terminal title bar -->
+  <rect x="800" y="120" width="424" height="36" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <rect x="800" y="144" width="424" height="12" fill="#161b22"/>
+  <!-- Traffic lights -->
+  <circle cx="826" cy="138" r="6" fill="#f85149" opacity="0.8"/>
+  <circle cx="846" cy="138" r="6" fill="#e3b341" opacity="0.8"/>
+  <circle cx="866" cy="138" r="6" fill="#3fb950" opacity="0.8"/>
+  <!-- Terminal title -->
+  <text x="1012" y="143" font-family="ui-monospace, monospace" font-size="12" fill="#6e7681" text-anchor="middle">npm run eval</text>
+
+  <!-- Terminal content -->
+  <text x="824" y="184" font-family="ui-monospace, 'Cascadia Code', monospace" font-size="13" fill="#8b949e">Running 21 tasks...</text>
+  <text x="824" y="204" font-family="ui-monospace, monospace" font-size="13" fill="#30363d">════════════════════════════════</text>
+
+  <!-- web tasks -->
+  <text x="824" y="228" font-family="ui-monospace, monospace" font-size="12" fill="#3fb950">✓</text>
+  <text x="840" y="228" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">web-01</text>
+  <text x="900" y="228" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e">default branch lookup</text>
+
+  <text x="824" y="248" font-family="ui-monospace, monospace" font-size="12" fill="#3fb950">✓</text>
+  <text x="840" y="248" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">web-04</text>
+  <text x="900" y="248" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e">license key extraction</text>
+
+  <text x="824" y="268" font-family="ui-monospace, monospace" font-size="12" fill="#f85149">✗</text>
+  <text x="840" y="268" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">web-05</text>
+  <text x="900" y="268" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e">stars count</text>
+  <text x="1120" y="268" font-family="ui-monospace, monospace" font-size="11" fill="#f85149">[hallucination]</text>
+
+  <text x="824" y="288" font-family="ui-monospace, monospace" font-size="12" fill="#3fb950">✓</text>
+  <text x="840" y="288" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">code-01</text>
+  <text x="900" y="288" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e">binary search fix</text>
+
+  <text x="824" y="308" font-family="ui-monospace, monospace" font-size="12" fill="#f85149">✗</text>
+  <text x="840" y="308" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">code-06</text>
+  <text x="900" y="308" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e">linked list reverse</text>
+  <text x="1120" y="308" font-family="ui-monospace, monospace" font-size="11" fill="#f85149">[wrong_answer]</text>
+
+  <text x="824" y="328" font-family="ui-monospace, monospace" font-size="12" fill="#3fb950">✓</text>
+  <text x="840" y="328" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">multi-04</text>
+  <text x="900" y="328" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e">prime sieve → 97</text>
+
+  <text x="824" y="348" font-family="ui-monospace, monospace" font-size="12" fill="#f85149">✗</text>
+  <text x="840" y="348" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">multi-01</text>
+  <text x="900" y="348" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e">go version compare</text>
+  <text x="1120" y="348" font-family="ui-monospace, monospace" font-size="11" fill="#e3b341">[judge: 3/5]</text>
+
+  <text x="824" y="368" font-family="ui-monospace, monospace" font-size="12" fill="#30363d">· · ·</text>
+
+  <!-- Summary box -->
+  <rect x="816" y="385" width="392" height="118" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="832" y="406" font-family="ui-monospace, monospace" font-size="12" fill="#30363d">════════════ SUMMARY ════════════</text>
+
+  <!-- Category bars -->
+  <text x="832" y="426" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">web     </text>
+  <text x="892" y="426" font-family="ui-monospace, monospace" font-size="12" fill="#3fb950">███████░</text>
+  <text x="1000" y="426" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e"> 7/8  88%</text>
+
+  <text x="832" y="446" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">code    </text>
+  <text x="892" y="446" font-family="ui-monospace, monospace" font-size="12" fill="#e3b341">█████░░░</text>
+  <text x="1000" y="446" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e"> 4/6  67%</text>
+
+  <text x="832" y="466" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">multistep</text>
+  <text x="892" y="466" font-family="ui-monospace, monospace" font-size="12" fill="#e3b341">██████░░</text>
+  <text x="1000" y="466" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e"> 5/7  71%</text>
+
+  <text x="832" y="490" font-family="ui-monospace, monospace" font-size="12" fill="#30363d">────────────────────────────────</text>
+  <text x="832" y="508" font-family="ui-monospace, monospace" font-size="13" fill="#c9d1d9">TOTAL   </text>
+  <text x="904" y="508" font-family="ui-monospace, monospace" font-size="13" font-weight="700" fill="#3fb950">16/21  76%</text>
+
+  <!-- Bottom: tech tags -->
+  <g font-family="ui-monospace, monospace" font-size="13">
+    <rect x="72" y="510" width="100" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="122" y="528" fill="#58a6ff" text-anchor="middle">TypeScript</text>
+
+    <rect x="184" y="510" width="130" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="249" y="528" fill="#58a6ff" text-anchor="middle">Anthropic SDK</text>
+
+    <rect x="326" y="510" width="118" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="385" y="528" fill="#a371f7" text-anchor="middle">LLM-as-judge</text>
+
+    <rect x="456" y="510" width="116" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="514" y="528" fill="#a371f7" text-anchor="middle">Prompt Cache</text>
+
+    <rect x="584" y="510" width="84" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="626" y="528" fill="#58a6ff" text-anchor="middle">ReAct</text>
+  </g>
+
+  <!-- github.com/c-tonneslan/agent-eval -->
+  <text x="1200" y="580" font-family="ui-monospace, monospace" font-size="13" fill="#30363d" text-anchor="end">github.com/c-tonneslan/agent-eval</text>
+</svg>

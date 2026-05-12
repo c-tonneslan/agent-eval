@@ -1,5 +1,7 @@
 # agent-eval
 
+![agent-eval preview](preview.svg)
+
 A from-scratch evaluation framework for agentic LLMs. Built to understand where agents actually fail, not just whether they pass a benchmark.
 
 The agent is a bare ReAct loop using the Anthropic SDK — no LangChain, no SmolAgents. Every step is logged, every token counted. Tasks cover web browsing, code debugging, and multi-step tool use.
