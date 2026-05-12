@@ -1,0 +1,22 @@
+{
+  "name": "agent-eval",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "eval": "tsx src/eval/runner.ts",
+    "judge": "tsx src/eval/judge.ts",
+    "dashboard": "tsx src/dashboard/render.ts",
+    "calibrate": "tsx src/eval/calibrate.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.95.2",
+    "@types/node": "^25.7.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}
