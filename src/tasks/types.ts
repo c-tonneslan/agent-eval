@@ -1,4 +1,4 @@
-export type TaskCategory = "web" | "code" | "multistep";
+export type TaskCategory = "web" | "code" | "multistep" | "reasoning";
 
 export type ScorerType =
   | "exact"       // exact string match
@@ -40,9 +40,21 @@ export interface EvalResult {
 export type FailureMode =
   | "wrong_answer"
   | "hallucination"    // answered without using tools
+  | "reward_hack"      // agent read/inspected test file to extract expected answer
   | "tool_error"       // tool call failed
   | "max_steps"
   | "max_tokens"
   | "api_error"
   | "no_answer"
   | "format_error";
+
+export interface EvalMeta {
+  model: string;
+  runAt: string;
+  totalTasks: number;
+  totalPassed: number;
+  passRate: number;
+  // Wilson score 95% CI
+  ciLow: number;
+  ciHigh: number;
+}

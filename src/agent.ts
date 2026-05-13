@@ -17,6 +17,7 @@ export interface Step {
 
 export interface Trajectory {
   taskId: string;
+  model: string;
   steps: Step[];
   finalAnswer: string | null;
   totalInputTokens: number;
@@ -44,7 +45,8 @@ export async function runAgent(
   taskId: string,
   taskDescription: string,
   tools: Tool[],
-  maxSteps = 10
+  maxSteps = 10,
+  model = "claude-sonnet-4-6"
 ): Promise<Trajectory> {
   const messages: Anthropic.MessageParam[] = [
     { role: "user", content: taskDescription },
@@ -57,6 +59,7 @@ export async function runAgent(
   }));
 
   const steps: Step[] = [];
+  let modelUsed = model;
   let totalInputTokens = 0;
   let totalOutputTokens = 0;
   let totalCacheReadTokens = 0;
@@ -71,7 +74,7 @@ export async function runAgent(
     let response: Anthropic.Message;
     try {
       response = await client.messages.create({
-        model: "claude-sonnet-4-6",
+        model,
         max_tokens: 2048,
         system: [
           {
@@ -184,6 +187,7 @@ export async function runAgent(
 
   return {
     taskId,
+    model: modelUsed,
     steps,
     finalAnswer,
     totalInputTokens,
