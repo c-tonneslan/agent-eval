@@ -9,6 +9,8 @@ on:
 jobs:
   smoke:
     runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
@@ -23,13 +25,9 @@ jobs:
       - name: Type check
         run: npx tsc --noEmit
 
-      - name: Run reasoning tasks (no API calls needed for exact-match)
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      - name: Run reasoning tasks
+        if: ${{ env.ANTHROPIC_API_KEY != '' }}
         run: npm run eval -- --reasoning --max 3
-        # Runs 3 reasoning tasks — cheap (haiku), fast, catches regressions
-        # Skip this step if ANTHROPIC_API_KEY is not set (fork PRs)
-        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
 
       - name: Upload results
         uses: actions/upload-artifact@v4
